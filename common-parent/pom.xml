@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>rebue.common-pom</groupId>
+		<artifactId>common-dependencies</artifactId>
+		<version>1.0.3-SNAPSHOT</version>
+	</parent>
+	<artifactId>common-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<properties>
+		<common-pom.groupId>rebue.common-pom</common-pom.groupId>
+		<common-pom.version>1.0.3-SNAPSHOT</common-pom.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${common-pom.groupId}</groupId>
+				<artifactId>rebue-import</artifactId>
+				<version>${common-pom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

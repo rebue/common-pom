@@ -1,0 +1,34 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>rebue.common-pom</groupId>
+	<artifactId>common-pom-aggregator</artifactId>
+	<version>1.0.3-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>common-aggregator</module>
+		<module>common-import</module>
+		<module>common-dependencies</module>
+		<module>rebue-import</module>
+		<module>common-parent</module>
+		<module>sb-dependencies</module>
+		<module>sb-parent</module>
+	</modules>
+
+	<!-- 配置部署的远程仓库 -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>my-snapshots</id>
+			<name>my-snapshots</name>
+			<url>${my-snapshots.url}</url>
+			<uniqueVersion>true</uniqueVersion>
+		</snapshotRepository>
+		<repository>
+			<id>my-releases</id>
+			<name>my-releases</name>
+			<url>${my-releases.url}</url>
+		</repository>
+	</distributionManagement>
+</project>

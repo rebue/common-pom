@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>rebue.common-pom</groupId>
+		<artifactId>common-pom-aggregator</artifactId>
+		<version>1.0.3-SNAPSHOT</version>
+	</parent>
+	<artifactId>common-import</artifactId>
+	<packaging>pom</packaging>
+	<description>常用包的依赖导入，供common-dependencies和sb-dependencies共用</description>
+
+	<properties>
+		<dozer.version>5.5.1</dozer.version>
+		<druid.version>1.1.4</druid.version>
+		<fastjson.version>1.2.33</fastjson.version>
+		<mybatis.version>3.4.5</mybatis.version>
+		<mybatis-spring.version>1.3.1</mybatis-spring.version>
+		<mybatis-generator.version>1.3.5</mybatis-generator.version>
+		<pagehelper.version>5.1.2</pagehelper.version>
+		<ojdbc.version>12.1.0.2</ojdbc.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- jdbc连接池 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+
+			<!-- sping mvc用来处理java对象与json字符串的互相转换 -->
+			<!-- 用来注解Mo给spring mvc识别 -->
+			<!-- MBG用来读取json格式的配置文件 -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+
+			<!-- ↓↓↓↓↓↓↓↓↓↓ dozer ↓↓↓↓↓↓↓↓↓↓ -->
+			<!-- 可以在JavaBean到JavaBean之间进行递归数据复制 -->
+			<dependency>
+				<groupId>net.sf.dozer</groupId>
+				<artifactId>dozer</artifactId>
+				<version>${dozer.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.dozer</groupId>
+				<artifactId>dozer-spring</artifactId>
+				<version>${dozer.version}</version>
+			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ dozer ↑↑↑↑↑↑↑↑↑↑ -->
+
+			<!-- ↓↓↓↓↓↓↓↓↓↓ mybatis ↓↓↓↓↓↓↓↓↓↓ -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>${mybatis.version}</version>
+			</dependency>
+			<!-- 支持用Spring的配置文件来配置MyBatis -->
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>${mybatis-spring.version}</version>
+			</dependency>
+			<!-- MyBatis的分页插件 -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper</artifactId>
+				<version>${pagehelper.version}</version>
+			</dependency>
+			<!-- mybatis自动生成 -->
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>${mybatis-generator.version}</version>
+			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ mybatis ↑↑↑↑↑↑↑↑↑↑ -->
+
+			<!-- 自打包的oracle的jdbc驱动 -->
+			<dependency>
+				<groupId>com.oracle</groupId>
+				<artifactId>ojdbc</artifactId>
+				<version>${ojdbc.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+</project>

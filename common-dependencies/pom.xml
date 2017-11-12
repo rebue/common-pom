@@ -1,0 +1,352 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>rebue.common-pom</groupId>
+		<artifactId>common-pom-aggregator</artifactId>
+		<version>1.0.3-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>common-dependencies</artifactId>
+	<packaging>pom</packaging>
+	<description>依赖常用jar包的父项目</description>
+
+	<properties>
+		<common-pom.groupId>rebue.common-pom</common-pom.groupId>
+		<common-pom.version>1.0.3-SNAPSHOT</common-pom.version>
+
+		<junit.version>4.12</junit.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<logback.version>1.2.3</logback.version>
+		<!-- log4j2的版本暂时不能用2.7之上的版本,否则spring boot项目在lor4j2.xml不在默认目录下， -->
+		<!-- 指定到另外的目录下，如config下，启动时会出现异常，但似乎不影响程序的正常运行 -->
+		<!-- java.lang.NoSuchMethodError: -->
+		<!-- org.apache.logging.log4j.core.pattern.ThrowablePatternConverter.<init> -->
+		<!-- (Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V -->
+		<log4j2.version>2.9.1</log4j2.version>
+		<!-- <log4j2.version>2.7</log4j2.version> -->
+		<jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
+		<javax-mail.version>1.5.6</javax-mail.version>
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<guava.version>23.2-jre</guava.version>
+		<javassist.version>3.22.0-GA</javassist.version>
+		<commons-configuration.version>2.2</commons-configuration.version>
+		<spring.version>4.3.12.RELEASE</spring.version>
+		<springloaded.version>1.2.8.RELEASE</springloaded.version>
+		<roaster.version>2.19.5.Final</roaster.version>
+		<beetl.version>2.7.22</beetl.version>
+		<bouncycastle.version>1.58</bouncycastle.version>
+		<protostuff.version>1.6.0</protostuff.version>
+
+		<!-- Maven的插件的版本 -->
+		<!-- <maven-enforcer-plugin.version>3.0.0-M1</maven-enforcer-plugin.version> -->
+
+		<!-- JDK版本 -->
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<!-- 使用UTF-8 -->
+		<encoding>UTF-8</encoding>
+		<!-- 设定整个项目的编码 -->
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<!-- 编译时的编码 -->
+		<maven.compiler.encoding>${encoding}</maven.compiler.encoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<argLine>-Dfile.encoding=${encoding}</argLine>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${common-pom.groupId}</groupId>
+				<artifactId>common-import</artifactId>
+				<version>${common-pom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<!-- 用slf4j实现jcl -->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>
+				<version>${jcl-over-slf4j.version}</version>
+			</dependency>
+
+			<!-- ↓↓↓↓↓↓↓↓↓↓ 日志框架log4j2 ↓↓↓↓↓↓↓↓↓↓ -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<!-- 桥接：告诉Slf4j使用Log4j2 -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-slf4j-impl</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<!-- 桥接：告诉commons logging使用Log4j2 -->
+			<!-- 目前主要有spring cloud还在使用jcl -->
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-jcl</artifactId>
+				<version>${log4j2.version}</version>
+			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ 日志框架log4j2 ↑↑↑↑↑↑↑↑↑↑ -->
+
+			<dependency>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>javax.mail</artifactId>
+				<version>${javax-mail.version}</version>
+			</dependency>
+			<!-- 使用字符串的一些帮助库 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+			<!-- 生成动态代理的类库 -->
+			<dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
+			</dependency>
+			<!-- 读取properties/xml等类型的配置文件 -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-configuration2</artifactId>
+				<version>${commons-configuration.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<!-- ↓↓↓↓↓↓↓↓↓↓ spring ↓↓↓↓↓↓↓↓↓↓ -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+				<scope>test</scope>
+				<exclusions>
+					<exclusion>
+						<artifactId>commons-logging</artifactId>
+						<groupId>commons-logging</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>commons-logging</artifactId>
+						<groupId>commons-logging</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- spring事务 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<!-- 在web服务器启动后实现spring mvc框架配置文件的热加载，貌似在jetty中不起作用 -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>springloaded</artifactId>
+				<version>${springloaded.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ spring ↑↑↑↑↑↑↑↑↑↑ -->
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+
+			<!-- ↓↓↓↓↓↓↓↓↓↓ 解析java源文件的库 ↓↓↓↓↓↓↓↓↓↓ -->
+			<dependency>
+				<groupId>org.jboss.forge.roaster</groupId>
+				<artifactId>roaster-api</artifactId>
+				<version>${roaster.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jboss.forge.roaster</groupId>
+				<artifactId>roaster-jdt</artifactId>
+				<version>${roaster.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ 解析java源文件的库 ↑↑↑↑↑↑↑↑↑↑ -->
+
+			<dependency>
+				<groupId>com.ibeetl</groupId>
+				<artifactId>beetl</artifactId>
+				<version>${beetl.version}</version>
+			</dependency>
+
+			<!-- 加密算法库 -->
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcprov-jdk15on</artifactId>
+				<version>${bouncycastle.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcpkix-jdk15on</artifactId>
+				<version>${bouncycastle.version}</version>
+			</dependency>
+
+			<!-- 序列化库 -->
+			<dependency>
+				<groupId>io.protostuff</groupId>
+				<artifactId>protostuff-core</artifactId>
+				<version>${protostuff.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.protostuff</groupId>
+				<artifactId>protostuff-runtime</artifactId>
+				<version>${protostuff.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<!-- <version>${maven-enforcer-plugin.version}</version> -->
+				<dependencies>
+					<dependency>
+						<groupId>rebue.maven</groupId>
+						<artifactId>enforcer-rulex</artifactId>
+						<version>1.0.0-SNAPSHOT</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>enforce-banned-dependencies</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<bannedDependenciesEx
+									implementation="rebue.maven.enforcer.BannedDependenciesEx">
+									<!-- 是否搜索传递性依赖(间接依赖)，默认false -->
+									<searchTransitive>true</searchTransitive>
+									<excludes>
+										<!--groupId[:artifactId][:version][:type][:scope][:classifier] -->
+										<exclude>commons-logging:commons-logging</exclude>
+										<exclude>aspectj:aspectj*</exclude>
+										<exclude>org.springframework:2.*</exclude>
+										<exclude>org.springframework:3.*</exclude>
+										<exclude>spring-boot-starter-logging</exclude>
+										<exclude>hibernate-jpa-2.0-api</exclude>
+									</excludes>
+									<!-- <includes> -->
+									<!-- 如果是spring-cloud-starter-eureka-server带的jcl则不用报错 -->
+									<!-- <include>org.springframework.cloud:spring-cloud-starter-eureka-server->commons-logging:commons-logging</include> -->
+									<!-- </includes> -->
+								</bannedDependenciesEx>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- resource插件 -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-resources-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+			<!-- <encoding>UTF-8</encoding> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+
+			<!-- jar打包相关插件 -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-jar-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <archive> -->
+			<!-- <manifest> -->
+			<!-- Spring注解自动扫描Jar中的类，以前在eclipse下，打包时需要选择Add directory entries选项，否则spring是不会扫描该jar的，在mavan下需要添加下面这行 -->
+			<!-- <addDefaultImplementationEntries>true</addDefaultImplementationEntries> -->
+			<!-- </manifest> -->
+			<!-- </archive> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!-- 制作docker镜像的插件 -->
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>${dockerfile-maven-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

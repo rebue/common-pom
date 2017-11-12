@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>rebue.common-pom</groupId>
+		<artifactId>sb-dependencies</artifactId>
+		<version>1.0.3-SNAPSHOT</version>
+		<relativePath />
+	</parent>
+
+	<artifactId>sb-parent</artifactId>
+	<packaging>pom</packaging>
+	<description>Spring Boot项目的parent</description>
+
+	<properties>
+		<sbs.group>rebue.sbs</sbs.group>
+		<sbs-druid.version>1.0.3-SNAPSHOT</sbs-druid.version>
+		<sbs-feign.version>1.0.3-SNAPSHOT</sbs-feign.version>
+		<sbs-redis.version>1.0.3-SNAPSHOT</sbs-redis.version>
+		<sbs-dozer.version>1.0.3-SNAPSHOT</sbs-dozer.version>
+		<sbs-smx.version>1.0.3-SNAPSHOT</sbs-smx.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${sbs-druid.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>feign-spring-boot-starter</artifactId>
+				<version>${sbs-feign.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>redis-spring-boot-starter</artifactId>
+				<version>${sbs-redis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>dozer-spring-boot-starter</artifactId>
+				<version>${sbs-dozer.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>smx-spring-boot-starter</artifactId>
+				<version>${sbs-smx.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>rebue.common-pom</groupId>
+		<artifactId>common-pom-aggregator</artifactId>
+		<version>1.0.3-SNAPSHOT</version>
+	</parent>
+	<artifactId>rebue-import</artifactId>
+	<packaging>pom</packaging>
+	<description>rebue的几个工具库的依赖导入</description>
+
+	<properties>
+		<wheel.groupId>rebue.wheel</wheel.groupId>
+		<wheel.version>1.0.3-SNAPSHOT</wheel.version>
+		<mbgx.groupId>rebue.mbgx</mbgx.groupId>
+		<mbgx.version>1.0.4-SNAPSHOT</mbgx.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>${wheel.groupId}</groupId>
+				<artifactId>wheel-test</artifactId>
+				<version>${wheel.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>${wheel.groupId}</groupId>
+				<artifactId>wheel-core</artifactId>
+				<version>${wheel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${wheel.groupId}</groupId>
+				<artifactId>wheel-turing</artifactId>
+				<version>${wheel.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${wheel.groupId}</groupId>
+				<artifactId>wheel-protostuff</artifactId>
+				<version>${wheel.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>${mbgx.groupId}</groupId>
+				<artifactId>mbgx</artifactId>
+				<version>${mbgx.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+</project>
