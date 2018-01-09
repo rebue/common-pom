@@ -15,6 +15,8 @@
 		<wheel.version>1.0.3-SNAPSHOT</wheel.version>
 		<mbgx.groupId>rebue.mbgx</mbgx.groupId>
 		<mbgx.version>1.0.4-SNAPSHOT</mbgx.version>
+		<robotech.groupId>rebue.robotech</robotech.groupId>
+		<robotech.version>3.0.0-SNAPSHOT</robotech.version>
 	</properties>
 
 	<dependencyManagement>
@@ -46,6 +48,18 @@
 				<artifactId>mbgx</artifactId>
 				<version>${mbgx.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>${robotech.groupId}</groupId>
+				<artifactId>robotech-api</artifactId>
+				<version>${robotech.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>${robotech.groupId}</groupId>
+				<artifactId>robotech-bll</artifactId>
+				<version>${robotech.version}</version>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 

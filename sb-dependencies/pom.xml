@@ -4,9 +4,10 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<!-- <version>2.0.0.M6</version> -->
-		<version>2.0.0.M3</version>
-		<!-- <version>1.5.8.RELEASE</version> -->
+		<!-- <version>2.0.0.M7</version> -->
+		<version>2.0.0.M6</version>
+		<!-- <version>2.0.0.M3</version> -->
+		<!-- <version>1.5.9.RELEASE</version> -->
 		<relativePath />
 	</parent>
 
@@ -21,14 +22,18 @@
 		<common-pom.version>1.0.3-SNAPSHOT</common-pom.version>
 		<wheel.groupId>rebue.wheel</wheel.groupId>
 
-		<!-- <spring-boot.version>2.0.0.M6</spring-boot.version> -->
-		<spring-boot.version>2.0.0.M3</spring-boot.version>
-		<!-- <spring-boot.version>1.5.8.RELEASE</spring-boot.version> -->
-		<spring-cloud.version>Finchley.M2</spring-cloud.version>
-		<!-- <spring-cloud.version>Edgware.RC1</spring-cloud.version> -->
+		<!-- <spring-boot.version>2.0.0.M7</spring-boot.version> -->
+		<spring-boot.version>2.0.0.M6</spring-boot.version>
+		<!-- <spring-boot.version>1.5.9.RELEASE</spring-boot.version> -->
+		<spring-cloud.version>Finchley.M4</spring-cloud.version>
+		<!-- <spring-cloud.version>Finchley.M2</spring-cloud.version> -->
+		<!-- <spring-cloud.version>Dalston.SR4</spring-cloud.version> -->
+		<!-- <spring-cloud.version>Edgware.BUILD-SNAPSHOT</spring-cloud.version> -->
+		<!-- <spring-cloud.version>Edgware.RELEASE</spring-cloud.version> -->
 
 		<mybatis-sbs.version>1.3.0</mybatis-sbs.version>
 		<pagehelper-sbs.version>1.2.3</pagehelper-sbs.version>
+		<dozer.version>6.1.0</dozer.version>
 
 		<!-- Maven插件版本 -->
 		<dockerfile-maven-plugin.version>1.3.6</dockerfile-maven-plugin.version>
@@ -80,6 +85,29 @@
 			</dependency>
 
 			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-starter-tomcat</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-validation</artifactId>
+				<version>2.0.0.M6</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.tomcat.embed</groupId>
+						<artifactId>tomcat-embed-el</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
 				<groupId>org.mybatis.spring.boot</groupId>
 				<artifactId>mybatis-spring-boot-starter</artifactId>
 				<version>${mybatis-sbs.version}</version>
@@ -90,23 +118,46 @@
 				<artifactId>pagehelper-spring-boot-starter</artifactId>
 				<version>${pagehelper-sbs.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.github.dozermapper</groupId>
+				<artifactId>dozer-spring-boot-starter</artifactId>
+				<version>${dozer.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<build>
+		<resources>
+			<!-- 将源代码目录中的xml/properties/tld文件也打包，比如mybatis的mapper.xml文件 -->
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.tld</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<excludes>
+						<exclude>conf/**</exclude>
 						<exclude>config/**</exclude>
+						<!-- <exclude>static/**</exclude> -->
 						<exclude>**/*.yml</exclude>
 						<exclude>**/log4j2.xml</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
-
 
 			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar包 -->
 			<plugin>
@@ -164,6 +215,17 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 
 	<!-- 配置部署的远程仓库 -->
 	<distributionManagement>

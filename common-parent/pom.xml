@@ -9,11 +9,6 @@
 	<artifactId>common-parent</artifactId>
 	<packaging>pom</packaging>
 
-	<properties>
-		<common-pom.groupId>rebue.common-pom</common-pom.groupId>
-		<common-pom.version>1.0.3-SNAPSHOT</common-pom.version>
-	</properties>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

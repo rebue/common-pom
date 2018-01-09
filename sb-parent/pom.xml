@@ -14,21 +14,26 @@
 	<description>Spring Boot项目的parent</description>
 
 	<properties>
+		<robotech.groupId>rebue.robotech</robotech.groupId>
+		<robotech.version>3.0.0-SNAPSHOT</robotech.version>
 		<sbs.group>rebue.sbs</sbs.group>
-		<sbs-druid.version>1.0.3-SNAPSHOT</sbs-druid.version>
+		<!-- <sbs-druid.version>1.0.3-SNAPSHOT</sbs-druid.version> -->
 		<sbs-feign.version>1.0.3-SNAPSHOT</sbs-feign.version>
 		<sbs-redis.version>1.0.3-SNAPSHOT</sbs-redis.version>
 		<sbs-dozer.version>1.0.3-SNAPSHOT</sbs-dozer.version>
+		<sbs-rabbit.version>1.0.3-SNAPSHOT</sbs-rabbit.version>
 		<sbs-smx.version>1.0.3-SNAPSHOT</sbs-smx.version>
+		<wxx.groudId>rebue.wxx</wxx.groudId>
+		<wxx-api-svr.version>0.0.1-SNAPSHOT</wxx-api-svr.version>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>${sbs.group}</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>${sbs-druid.version}</version>
-			</dependency>
+			<!-- <dependency> -->
+			<!-- <groupId>${sbs.group}</groupId> -->
+			<!-- <artifactId>druid-spring-boot-starter</artifactId> -->
+			<!-- <version>${sbs-druid.version}</version> -->
+			<!-- </dependency> -->
 
 			<dependency>
 				<groupId>${sbs.group}</groupId>
@@ -48,6 +53,11 @@
 				<version>${sbs-dozer.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>${sbs.group}</groupId>
+				<artifactId>rabbit-spring-boot-starter</artifactId>
+				<version>${sbs-rabbit.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>${sbs.group}</groupId>
 				<artifactId>smx-spring-boot-starter</artifactId>
