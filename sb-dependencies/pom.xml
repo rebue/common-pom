@@ -150,7 +150,7 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<excludes>
-						<exclude>conf/**</exclude>
+						<!-- <exclude>conf/**</exclude> -->
 						<exclude>config/**</exclude>
 						<!-- <exclude>static/**</exclude> -->
 						<exclude>**/*.yml</exclude>
@@ -216,16 +216,16 @@
 		</pluginManagement>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/libs-snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
+	<!-- <repositories> -->
+	<!-- <repository> -->
+	<!-- <id>spring-snapshots</id> -->
+	<!-- <name>Spring Snapshots</name> -->
+	<!-- <url>https://repo.spring.io/libs-snapshot</url> -->
+	<!-- <snapshots> -->
+	<!-- <enabled>true</enabled> -->
+	<!-- </snapshots> -->
+	<!-- </repository> -->
+	<!-- </repositories> -->
 
 	<!-- 配置部署的远程仓库 -->
 	<distributionManagement>

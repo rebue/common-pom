@@ -23,7 +23,7 @@
 		<sbs-dozer.version>1.0.3-SNAPSHOT</sbs-dozer.version>
 		<sbs-rabbit.version>1.0.3-SNAPSHOT</sbs-rabbit.version>
 		<sbs-smx.version>1.0.3-SNAPSHOT</sbs-smx.version>
-		<wxx.groudId>rebue.wxx</wxx.groudId>
+		<wxx.groupId>rebue.wxx</wxx.groupId>
 		<wxx-api-svr.version>0.0.1-SNAPSHOT</wxx-api-svr.version>
 	</properties>
 

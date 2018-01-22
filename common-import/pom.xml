@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>rebue.common-pom</groupId>
-		<artifactId>common-pom-aggregator</artifactId>
+		<artifactId>common-pom</artifactId>
 		<version>1.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>common-import</artifactId>
