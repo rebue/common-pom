@@ -2,19 +2,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>rebue.common-pom</groupId>
+		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-dependencies</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.5</version>
 	</parent>
+
 	<artifactId>common-parent</artifactId>
 	<packaging>pom</packaging>
+	<description>普通Maven项目(非Spring Boot的项目)的父项目</description>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>${common-pom.groupId}</groupId>
+				<groupId>com.github.rebue.common-pom</groupId>
 				<artifactId>rebue-import</artifactId>
-				<version>${common-pom.version}</version>
+				<version>1.0.5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

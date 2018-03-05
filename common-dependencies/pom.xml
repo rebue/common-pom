@@ -2,11 +2,10 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<parent>
-		<groupId>rebue.common-pom</groupId>
+		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-pom</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.5</version>
 	</parent>
 
 	<artifactId>common-dependencies</artifactId>
@@ -14,17 +13,6 @@
 	<description>依赖常用jar包的父项目</description>
 
 	<properties>
-		<common-pom.groupId>rebue.common-pom</common-pom.groupId>
-		<common-pom.version>1.0.3-SNAPSHOT</common-pom.version>
-
-		<wheel.groupId>rebue.wheel</wheel.groupId>
-		<wheel-test.version>1.0.3-SNAPSHOT</wheel-test.version>
-		<wheel-core.version>1.0.3-SNAPSHOT</wheel-core.version>
-		<robotech.groupId>rebue.robotech</robotech.groupId>
-		<robotech.version>3.0.0-SNAPSHOT</robotech.version>
-		<mbgx.groupId>rebue.mbgx</mbgx.groupId>
-		<mbgx.version>1.0.4-SNAPSHOT</mbgx.version>
-
 		<junit.version>4.12</junit.version>
 		<slf4j.version>1.7.25</slf4j.version>
 		<logback.version>1.2.3</logback.version>
@@ -76,9 +64,9 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>${common-pom.groupId}</groupId>
+				<groupId>com.github.rebue.common-pom</groupId>
 				<artifactId>common-import</artifactId>
-				<version>${common-pom.version}</version>
+				<version>1.0.5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -365,13 +353,13 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<!-- <version>${maven-enforcer-plugin.version}</version> -->
-				<dependencies>
-					<dependency>
-						<groupId>rebue.maven</groupId>
-						<artifactId>enforcer-rulex</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
+				<!-- <dependencies> -->
+				<!-- <dependency> -->
+				<!-- <groupId>com.github.rebue.maven</groupId> -->
+				<!-- <artifactId>enforcer-rulex</artifactId> -->
+				<!-- <version>1.0.0-SNAPSHOT</version> -->
+				<!-- </dependency> -->
+				<!-- </dependencies> -->
 				<executions>
 					<execution>
 						<id>enforce-banned-dependencies</id>
@@ -380,8 +368,8 @@
 						</goals>
 						<configuration>
 							<rules>
-								<bannedDependenciesEx
-									implementation="rebue.maven.enforcer.BannedDependenciesEx">
+								<!-- <bannedDependenciesEx implementation="rebue.maven.enforcer.BannedDependenciesEx"> -->
+								<bannedDependencies>
 									<!-- 是否搜索传递性依赖(间接依赖)，默认false -->
 									<searchTransitive>true</searchTransitive>
 									<excludes>
@@ -397,7 +385,7 @@
 									<!-- 如果是spring-cloud-starter-eureka-server带的jcl则不用报错 -->
 									<!-- <include>org.springframework.cloud:spring-cloud-starter-eureka-server->commons-logging:commons-logging</include> -->
 									<!-- </includes> -->
-								</bannedDependenciesEx>
+								</bannedDependencies>
 							</rules>
 							<fail>true</fail>
 						</configuration>
@@ -429,16 +417,5 @@
 			<!-- </configuration> -->
 			<!-- </plugin> -->
 		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<!-- 制作docker镜像的插件 -->
-				<plugin>
-					<groupId>com.spotify</groupId>
-					<artifactId>dockerfile-maven-plugin</artifactId>
-					<version>${dockerfile-maven-plugin.version}</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 </project>

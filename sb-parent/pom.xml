@@ -3,65 +3,50 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>rebue.common-pom</groupId>
+		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>sb-dependencies</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
-		<relativePath />
+		<version>1.0.5</version>
 	</parent>
 
 	<artifactId>sb-parent</artifactId>
 	<packaging>pom</packaging>
 	<description>Spring Boot项目的parent</description>
 
-	<properties>
-		<robotech.groupId>rebue.robotech</robotech.groupId>
-		<robotech.version>3.0.0-SNAPSHOT</robotech.version>
-		<sbs.group>rebue.sbs</sbs.group>
-		<!-- <sbs-druid.version>1.0.3-SNAPSHOT</sbs-druid.version> -->
-		<sbs-feign.version>1.0.3-SNAPSHOT</sbs-feign.version>
-		<sbs-redis.version>1.0.3-SNAPSHOT</sbs-redis.version>
-		<sbs-dozer.version>1.0.3-SNAPSHOT</sbs-dozer.version>
-		<sbs-rabbit.version>1.0.3-SNAPSHOT</sbs-rabbit.version>
-		<sbs-smx.version>1.0.3-SNAPSHOT</sbs-smx.version>
-		<wxx.groupId>rebue.wxx</wxx.groupId>
-		<wxx-api-svr.version>0.0.1-SNAPSHOT</wxx-api-svr.version>
-	</properties>
-
 	<dependencyManagement>
 		<dependencies>
 			<!-- <dependency> -->
-			<!-- <groupId>${sbs.group}</groupId> -->
+			<!-- <groupId>com.github.rebue.sbs</groupId> -->
 			<!-- <artifactId>druid-spring-boot-starter</artifactId> -->
 			<!-- <version>${sbs-druid.version}</version> -->
 			<!-- </dependency> -->
 
 			<dependency>
-				<groupId>${sbs.group}</groupId>
+				<groupId>com.github.rebue.sbs</groupId>
 				<artifactId>feign-spring-boot-starter</artifactId>
-				<version>${sbs-feign.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 			<dependency>
-				<groupId>${sbs.group}</groupId>
+				<groupId>com.github.rebue.sbs</groupId>
 				<artifactId>redis-spring-boot-starter</artifactId>
-				<version>${sbs-redis.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 			<dependency>
-				<groupId>${sbs.group}</groupId>
+				<groupId>com.github.rebue.sbs</groupId>
 				<artifactId>dozer-spring-boot-starter</artifactId>
-				<version>${sbs-dozer.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 			<dependency>
-				<groupId>${sbs.group}</groupId>
+				<groupId>com.github.rebue.sbs</groupId>
 				<artifactId>rabbit-spring-boot-starter</artifactId>
-				<version>${sbs-rabbit.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 			<dependency>
-				<groupId>${sbs.group}</groupId>
+				<groupId>com.github.rebue.sbs</groupId>
 				<artifactId>smx-spring-boot-starter</artifactId>
-				<version>${sbs-smx.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

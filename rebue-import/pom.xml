@@ -2,62 +2,54 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>rebue.common-pom</groupId>
+		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-pom</artifactId>
-		<version>1.0.3-SNAPSHOT</version>
+		<version>1.0.5</version>
 	</parent>
+
 	<artifactId>rebue-import</artifactId>
 	<packaging>pom</packaging>
 	<description>rebue的几个工具库的依赖导入</description>
 
-	<properties>
-		<wheel.groupId>rebue.wheel</wheel.groupId>
-		<wheel.version>1.0.3-SNAPSHOT</wheel.version>
-		<mbgx.groupId>rebue.mbgx</mbgx.groupId>
-		<mbgx.version>1.0.4-SNAPSHOT</mbgx.version>
-		<robotech.groupId>rebue.robotech</robotech.groupId>
-		<robotech.version>3.0.0-SNAPSHOT</robotech.version>
-	</properties>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>${wheel.groupId}</groupId>
+				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-test</artifactId>
-				<version>${wheel.version}</version>
+				<version>1.0.5</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-				<groupId>${wheel.groupId}</groupId>
+				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-core</artifactId>
-				<version>${wheel.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 			<dependency>
-				<groupId>${wheel.groupId}</groupId>
+				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-turing</artifactId>
-				<version>${wheel.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 			<dependency>
-				<groupId>${wheel.groupId}</groupId>
+				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-protostuff</artifactId>
-				<version>${wheel.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 			<dependency>
-				<groupId>${mbgx.groupId}</groupId>
+				<groupId>com.github.rebue.mbgx</groupId>
 				<artifactId>mbgx</artifactId>
-				<version>${mbgx.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 			<dependency>
-				<groupId>${robotech.groupId}</groupId>
+				<groupId>com.github.rebue.robotech</groupId>
 				<artifactId>robotech-api</artifactId>
-				<version>${robotech.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 			<dependency>
-				<groupId>${robotech.groupId}</groupId>
+				<groupId>com.github.rebue.robotech</groupId>
 				<artifactId>robotech-bll</artifactId>
-				<version>${robotech.version}</version>
+				<version>1.0.5</version>
 			</dependency>
 
 		</dependencies>

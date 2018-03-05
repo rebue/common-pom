@@ -2,10 +2,16 @@
 	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>rebue.common-pom</groupId>
+	<parent>
+		<groupId>com.github.rebue</groupId>
+		<artifactId>rebue</artifactId>
+		<version>1.0.5</version>
+	</parent>
+
+	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>common-pom</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<description>常用的pom.xml文件</description>
 
 	<modules>
 		<module>common-import</module>
@@ -15,18 +21,17 @@
 		<module>sb-dependencies</module>
 		<module>sb-parent</module>
 	</modules>
-	
-	<distributionManagement>
-		<snapshotRepository>
-			<id>my-snapshots</id>
-			<name>my-snapshots</name>
-			<url>${my-snapshots.url}</url>
-			<uniqueVersion>true</uniqueVersion>
-		</snapshotRepository>
-		<repository>
-			<id>my-releases</id>
-			<name>my-releases</name>
-			<url>${my-releases.url}</url>
-		</repository>
-	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- 制作docker镜像的插件 -->
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>dockerfile-maven-plugin</artifactId>
+					<version>${dockerfile-maven-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
