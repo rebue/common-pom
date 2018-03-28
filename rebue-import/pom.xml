@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-pom</artifactId>
-		<version>1.0.6</version>
+		<version>1.0.7</version>
 	</parent>
 
 	<artifactId>rebue-import</artifactId>
@@ -16,40 +16,40 @@
 			<dependency>
 				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-test</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-core</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-turing</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel-protostuff</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.github.rebue.mbgx</groupId>
 				<artifactId>mbgx</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.github.rebue.robotech</groupId>
 				<artifactId>robotech-api</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.rebue.robotech</groupId>
 				<artifactId>robotech-bll</artifactId>
-				<version>1.0.6</version>
+				<version>1.0.7</version>
 			</dependency>
 
 		</dependencies>
