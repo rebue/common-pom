@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -23,6 +24,8 @@
 		<swagger.version>2.7.0</swagger.version>
 		<ojdbc.version>12.1.0.2</ojdbc.version>
 		<rabbitmq.version>5.1.1</rabbitmq.version>
+		<javaxel-api.version>3.0.0</javaxel-api.version>
+		<javaxel.version>2.2.6</javaxel.version>
 	</properties>
 
 	<dependencyManagement>
@@ -118,6 +121,16 @@
 				<version>${rabbitmq.version}</version>
 			</dependency>
 
+			<dependency>
+				<groupId>javax.el</groupId>
+				<artifactId>javax.el-api</artifactId>
+				<version>${javaxel-api.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.web</groupId>
+				<artifactId>javax.el</artifactId>
+				<version>${javaxel.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 </project>
