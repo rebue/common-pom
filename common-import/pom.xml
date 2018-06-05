@@ -26,6 +26,7 @@
 		<rabbitmq.version>5.1.1</rabbitmq.version>
 		<javaxel-api.version>3.0.0</javaxel-api.version>
 		<javaxel.version>2.2.6</javaxel.version>
+		<nimbus-jose-jwt.version>5.8</nimbus-jose-jwt.version>
 	</properties>
 
 	<dependencyManagement>
@@ -130,6 +131,12 @@
 				<groupId>org.glassfish.web</groupId>
 				<artifactId>javax.el</artifactId>
 				<version>${javaxel.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.nimbusds</groupId>
+				<artifactId>nimbus-jose-jwt</artifactId>
+				<version>${nimbus-jose-jwt.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
