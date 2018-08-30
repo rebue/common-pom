@@ -137,6 +137,18 @@
 				<artifactId>dozer-spring-boot-starter</artifactId>
 				<version>${dozer.version}</version>
 			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>fluent-hc</artifactId>
+				<version>${httpclient.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
