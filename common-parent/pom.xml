@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-dependencies</artifactId>
-		<version>1.0.8</version>
+		<version>1.0.9</version>
 	</parent>
 
 	<artifactId>common-parent</artifactId>
@@ -16,7 +16,7 @@
 			<dependency>
 				<groupId>com.github.rebue.common-pom</groupId>
 				<artifactId>rebue-import</artifactId>
-				<version>1.0.8</version>
+				<version>1.0.9</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
