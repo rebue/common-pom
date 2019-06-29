@@ -40,7 +40,7 @@
 		<hibernate.version>5.4.0.Final</hibernate.version>
 		<hibernate-jpa.version>1.0.2.Final</hibernate-jpa.version>
 		<roaster.version>2.19.5.Final</roaster.version>
-		<beetl.version>2.8.7</beetl.version>
+		<beetl.version>3.0.7.RELEASE</beetl.version>
 		<bouncycastle.version>1.58</bouncycastle.version>
 		<protostuff.version>1.6.0</protostuff.version>
 		<lombok.version>1.18.2</lombok.version>
