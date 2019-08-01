@@ -4,7 +4,7 @@
 
 	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>common-pom</artifactId>
-	<version>1.0.9</version>
+	<version>1.1.0</version>
 	<packaging>pom</packaging>
 	<name>common-pom</name>
 	<description>常用的pom.xml文件</description>
@@ -34,12 +34,129 @@
 		<module>common-import</module>
 		<module>common-dependencies</module>
 		<module>rebue-import</module>
-		<module>common-parent</module>
+		<module>./common-dependencies/common-parent</module>
 		<module>sb-dependencies</module>
-		<module>sb-parent</module>
+		<module>./sb-dependencies/sb-parent</module>
 	</modules>
 
+	<properties>
+		<!-- Maven的插件的版本 -->
+		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
+		<dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+
+		<!-- JDK版本 -->
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+
+		<!-- 使用UTF-8 -->
+		<encoding>UTF-8</encoding>
+		<!-- 设定整个项目的编码 -->
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<!-- 编译时的编码 -->
+		<maven.compiler.encoding>${encoding}</maven.compiler.encoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<argLine>-Dfile.encoding=${encoding}</argLine>
+	</properties>
+
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.tld</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>config/**</exclude>
+						<exclude>static/**</exclude>
+						<exclude>templates/**</exclude>
+						<exclude>**/*.yml</exclude>
+						<exclude>**/log4j2.xml</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<!-- enforcer插件, 避免被依赖的依赖引入过期的jar包 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.version}</version>
+				<!-- <dependencies> -->
+				<!-- <dependency> -->
+				<!-- <groupId>com.github.rebue.maven</groupId> -->
+				<!-- <artifactId>enforcer-rulex</artifactId> -->
+				<!-- <version>1.0.0-SNAPSHOT</version> -->
+				<!-- </dependency> -->
+				<!-- </dependencies> -->
+				<executions>
+					<execution>
+						<id>enforce-banned-dependencies</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<!-- <bannedDependenciesEx implementation="rebue.maven.enforcer.BannedDependenciesEx"> -->
+								<bannedDependencies>
+									<!-- 是否搜索传递性依赖(间接依赖)，默认false -->
+									<searchTransitive>true</searchTransitive>
+									<excludes>
+										<!--groupId[:artifactId][:version][:type][:scope][:classifier] -->
+										<exclude>commons-logging:commons-logging</exclude>
+										<exclude>aspectj:aspectj*</exclude>
+										<exclude>org.springframework:2.*</exclude>
+										<exclude>org.springframework:3.*</exclude>
+										<exclude>spring-boot-starter-logging</exclude>
+										<exclude>hibernate-jpa-2.0-api</exclude>
+									</excludes>
+									<!-- <includes> -->
+									<!-- 如果是spring-cloud-starter-eureka-server带的jcl则不用报错 -->
+									<!-- <include>org.springframework.cloud:spring-cloud-starter-eureka-server->commons-logging:commons-logging</include> -->
+									<!-- </includes> -->
+								</bannedDependencies>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- resource插件 -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-resources-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+			<!-- <encoding>UTF-8</encoding> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+
+			<!-- jar打包相关插件 -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-jar-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <archive> -->
+			<!-- <manifest> -->
+			<!-- Spring注解自动扫描Jar中的类，以前在eclipse下，打包时需要选择Add directory entries选项，否则spring是不会扫描该jar的，在mavan下需要添加下面这行 -->
+			<!-- <addDefaultImplementationEntries>true</addDefaultImplementationEntries> -->
+			<!-- </manifest> -->
+			<!-- </archive> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+		</plugins>
+		
 		<pluginManagement>
 			<plugins>
 				<!-- 制作docker镜像的插件 -->
