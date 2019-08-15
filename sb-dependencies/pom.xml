@@ -48,6 +48,8 @@
 		<!-- <feign.version>9.7.0</feign.version> -->
 		<feign.version>10.2.3</feign.version>
 
+		<elasticsearch.version>7.3.0</elasticsearch.version>
+
 		<!-- Maven的插件的版本 -->
 		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
 
@@ -136,6 +138,12 @@
 				<groupId>com.github.dozermapper</groupId>
 				<artifactId>dozer-spring-boot-starter</artifactId>
 				<version>${dozer-sbs.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.elasticsearch.client</groupId>
+				<artifactId>elasticsearch-rest-high-level-client</artifactId>
+				<version>${elasticsearch.version}</version><!--$NO-MVN-MAN-VER$ -->
 			</dependency>
 
 
