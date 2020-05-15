@@ -42,12 +42,16 @@
 	<properties>
 		<!-- Maven的插件的版本 -->
 		<maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
-		<dockerfile-maven-plugin.version>1.4.10</dockerfile-maven-plugin.version>
+		<dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+
 
 		<!-- JDK版本 -->
 		<java.version>1.8</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
+
 
 		<!-- 使用UTF-8 -->
 		<encoding>UTF-8</encoding>
@@ -74,9 +78,20 @@
 
 		<plugins>
 			<plugin>
+				<!-- jar打包插件 -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven-jar-plugin.version}</version>
 				<configuration>
+					<!-- <archive> -->
+					<!-- <manifest> -->
+					<!-- Spring注解自动扫描Jar中的类，以前在eclipse下，打包时需要选择Add directory entries选项，否则spring是不会扫描该jar的， -->
+					<!-- 在mavan下需要添加下面这行 -->
+					<!-- <addDefaultImplementationEntries>true</addDefaultImplementationEntries> -->
+					<!-- </manifest> -->
+					<!-- </archive> -->
+
+					<!-- 设置不会将下面的目录打进jar包，一般都是一些要根据现场环境定制的配置文件 -->
 					<excludes>
 						<exclude>config/**</exclude>
 						<exclude>static/**</exclude>
@@ -142,21 +157,8 @@
 			<!-- </configuration> -->
 			<!-- </plugin> -->
 
-			<!-- jar打包相关插件 -->
-			<!-- <plugin> -->
-			<!-- <groupId>org.apache.maven.plugins</groupId> -->
-			<!-- <artifactId>maven-jar-plugin</artifactId> -->
-			<!-- <configuration> -->
-			<!-- <archive> -->
-			<!-- <manifest> -->
-			<!-- Spring注解自动扫描Jar中的类，以前在eclipse下，打包时需要选择Add directory entries选项，否则spring是不会扫描该jar的，在mavan下需要添加下面这行 -->
-			<!-- <addDefaultImplementationEntries>true</addDefaultImplementationEntries> -->
-			<!-- </manifest> -->
-			<!-- </archive> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
 		</plugins>
-		
+
 		<pluginManagement>
 			<plugins>
 				<!-- 制作docker镜像的插件 -->
@@ -221,7 +223,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.0.1</version>
+						<version>${maven-javadoc-plugin.version}</version>
 						<configuration>
 							<!-- 不检查JavaDoc规范 -->
 							<!-- <doclint>none</doclint> -->
@@ -235,6 +237,15 @@
 								</tag>
 							</tags>
 						</configuration>
+						<!-- javadoc插件默认不运行，要绑定到MAven的生命周期阶段中 -->
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 					<!-- 部署时用GPG数字签名 -->
 					<plugin>

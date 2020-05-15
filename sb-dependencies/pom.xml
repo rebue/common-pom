@@ -51,7 +51,8 @@
 		<elasticsearch.version>7.3.0</elasticsearch.version>
 
 		<!-- Maven的插件的版本 -->
-		<dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
+		<maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
+		<dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
 
 		<java.version>1.8</java.version>
 
@@ -369,7 +370,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>3.0.1</version>
+						<version>${maven-javadoc-plugin.version}</version>
 						<configuration>
 							<!-- 不检查JavaDoc规范 -->
 							<!-- <doclint>none</doclint> -->
@@ -383,6 +384,15 @@
 								</tag>
 							</tags>
 						</configuration>
+						<!-- javadoc插件默认不运行，要绑定到MAven的生命周期阶段中 -->
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 					<!-- 部署时用GPG数字签名 -->
 					<plugin>
