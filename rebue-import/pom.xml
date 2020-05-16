@@ -4,7 +4,7 @@
 
 	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>rebue-import</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>pom</packaging>
 	<name>rebue-import</name>
 	<description>rebue的几个工具库的依赖导入</description>

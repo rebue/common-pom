@@ -4,7 +4,7 @@
 
 	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>common-import</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<packaging>pom</packaging>
 	<name>common-import</name>
 	<description>常用包的依赖导入，供common-dependencies和sb-dependencies共用</description>
