@@ -40,14 +40,14 @@
 		<pagehelper.version>5.1.10</pagehelper.version>
 		<mybatis-generator.version>1.3.7</mybatis-generator.version>
 		<elasticsearch.version>7.3.0</elasticsearch.version>
-		<okhttp.version>4.0.1</okhttp.version>
-		<httpclient.version>4.5.9</httpclient.version>
+		<okhttp3.version>4.6.0</okhttp3.version>
+		<httpclient.version>4.5.12</httpclient.version>
 		<swagger.version>2.9.2</swagger.version>
 		<ojdbc.version>12.1.0.2</ojdbc.version>
 		<rabbitmq.version>5.7.3</rabbitmq.version>
 		<javax.el-api.version>3.0.0</javax.el-api.version>
 		<javax.el.version>3.0.0</javax.el.version>
-		<nimbus-jose-jwt.version>7.6</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>8.17</nimbus-jose-jwt.version>
 		<commons-codec.version>1.13</commons-codec.version>
 	</properties>
 
@@ -119,10 +119,11 @@
 				<version>${elasticsearch.version}</version>
 			</dependency>
 
+			<!-- ↓↓↓↓↓↓↓↓↓↓ httpclient ↓↓↓↓↓↓↓↓↓↓ -->
 			<dependency>
 				<groupId>com.squareup.okhttp3</groupId>
 				<artifactId>okhttp</artifactId>
-				<version>${okhttp.version}</version>
+				<version>${okhttp3.version}</version>
 			</dependency>
 
 			<dependency>
@@ -148,6 +149,7 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<!-- ↑↑↑↑↑↑↑↑↑↑ httpclient ↑↑↑↑↑↑↑↑↑↑ -->
 
 			<dependency>
 				<groupId>io.springfox</groupId>
