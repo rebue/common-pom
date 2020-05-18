@@ -41,13 +41,15 @@
 		<spring-boot.version>2.2.7.RELEASE</spring-boot.version>
 		<!-- <spring-cloud.version>Finchley.M8</spring-cloud.version> -->
 		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+		
+		<nacos.version>2.2.1.RELEASE</nacos.version>
 
 		<mybatis-sbs.version>2.1.0</mybatis-sbs.version>
 		<pagehelper-sbs.version>1.2.12</pagehelper-sbs.version>
 		<dozer-sbs.version>6.5.0</dozer-sbs.version>
 		<!-- <feign.version>9.7.0</feign.version> -->
 		<feign.version>10.2.3</feign.version>
-		
+
 		<!-- Spring Boot中的版本太旧，指定为新版本 -->
 		<okhttp3.version>4.6.0</okhttp3.version>
 
@@ -89,6 +91,12 @@
 				<version>${spring-cloud.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+				<version>${nacos.version}</version>
 			</dependency>
 
 			<dependency>
