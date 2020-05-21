@@ -43,6 +43,8 @@
 		<spring-cloud.version>Hoxton.SR4</spring-cloud.version>
 
 		<nacos.version>2.2.1.RELEASE</nacos.version>
+		<sentinel.version>1.7.2</sentinel.version>
+		<alibaba-sentinel.version>2.2.1.RELEASE</alibaba-sentinel.version>
 
 		<mybatis-sbs.version>2.1.0</mybatis-sbs.version>
 		<pagehelper-sbs.version>1.2.12</pagehelper-sbs.version>
@@ -117,6 +119,18 @@
 				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
 				<version>${nacos.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+				<version>${alibaba-sentinel.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba.csp</groupId>
+				<artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+				<version>${sentinel.version}</version>
 			</dependency>
 
 			<dependency>
