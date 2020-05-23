@@ -128,6 +128,11 @@
 				<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
 				<version>${alibaba-sentinel.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
+				<version>${alibaba-sentinel.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>com.alibaba.csp</groupId>
