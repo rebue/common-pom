@@ -1,0 +1,7 @@
+target
+.classpath
+.project
+.settings
+logs
+pom.xml.versionsBackup
+.DS_Store
