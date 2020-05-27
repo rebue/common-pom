@@ -35,7 +35,7 @@
 		<dom4j.version>2.1.1</dom4j.version>
 		<xstream.version>1.4.11.1</xstream.version>
 		<!-- <spring.version>4.3.12.RELEASE</spring.version> -->
-		<spring.version>5.1.8.RELEASE</spring.version>
+		<spring.version>5.2.6.RELEASE</spring.version>
 		<spring-data-jpa.version>2.1.10.RELEASE</spring-data-jpa.version>
 		<spring-data-elasticsearch.version>3.1.10.RELEASE</spring-data-elasticsearch.version>
 		<springloaded.version>1.2.8.RELEASE</springloaded.version>
