@@ -28,7 +28,7 @@
 		<commons-lang3.version>3.9</commons-lang3.version>
 		<guava.version>28.0-jre</guava.version>
 		<javassist.version>3.25.0-GA</javassist.version>
-		<commons-configuration.version>2.5</commons-configuration.version>
+		<commons-configuration.version>2.7</commons-configuration.version>
 		<servlet.version>3.1.0</servlet.version>
 		<jackson.version>2.9.9</jackson.version>
 		<!-- <dom4j.version>1.6.1</dom4j.version> -->
