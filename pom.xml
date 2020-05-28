@@ -35,6 +35,10 @@
 		<url>https://github.com/rebue/common-pom.git</url>
 	</scm>
 
+	<modules>
+		<module>sb-dependencies</module>
+	</modules>
+
 	<properties>
 		<!-- SpringBoot的版本 -->
 		<spring-boot.version>2.3.0.RELEASE</spring-boot.version>
@@ -79,7 +83,7 @@
 		<!-- 下面的设置似乎已经过时了，先注释起来，如果出了问题再改过来 -->
 		<!-- 使用UTF-8 -->
 		<!-- <encoding>UTF-8</encoding> -->
-		<!-- 编译时的编� � -->
+		<!-- 编译时的编码 -->
 		<!-- <maven.compiler.encoding>${encoding}</maven.compiler.encoding> -->
 		<!-- <argLine>-Dfile.encoding=${encoding}</argLine> -->
 	</properties>
@@ -246,7 +250,7 @@
 				<version>${feign.version}</version>
 			</dependency>
 
-			<!-- 如果不�� 入此项，springboot启动会报错 -->
+			<!-- 如果不加入此项，springboot启动会报错 -->
 			<!-- The Bean Validation API is on the classpath but no implementation could be found -->
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
@@ -279,7 +283,7 @@
 				<version>5.1.11</version>
 			</dependency>
 
-			<!-- MBG用来读取json� �式的配置文件 -->
+			<!-- MBG用来读取json格式的配置文件 -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
@@ -567,7 +571,4 @@
 		</profile>
 	</profiles>
 
-	<modules>
-		<module>sb-dependencies</module>
-	</modules>
 </project>
