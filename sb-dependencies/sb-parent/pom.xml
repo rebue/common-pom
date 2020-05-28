@@ -23,9 +23,4 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
-	<modules>
-		<module>sb-svr-dependencies</module>
-		<module>sc-svr-dependencies</module>
-	</modules>
 </project>
