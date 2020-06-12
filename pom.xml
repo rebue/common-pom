@@ -142,6 +142,12 @@
 				</exclusions>
 			</dependency>
 
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.7.7</version>
+			</dependency>
+
 			<!-- OpenAPI -->
 			<dependency>
 				<groupId>org.springdoc</groupId>
