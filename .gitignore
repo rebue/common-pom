@@ -5,3 +5,10 @@ target
 logs
 pom.xml.versionsBackup
 .DS_Store
+.gradle
+gradle
+build.grdle
+gradlew
+gradlew.bat
+settings.gradle
+
