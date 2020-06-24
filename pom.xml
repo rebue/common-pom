@@ -74,7 +74,6 @@
 
 
         <!-- Maven的插件的版本 -->
-        <maven-javadoc-plugin.version>3.2.0</maven-javadoc-plugin.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
 
 
@@ -482,7 +481,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
                     <!-- 不检查JavaDoc规范 -->
                     <!-- <doclint>none</doclint> -->
