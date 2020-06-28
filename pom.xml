@@ -61,7 +61,7 @@
 		<!-- <feign.version>9.7.0</feign.version> -->
 		<feign.version>10.2.3</feign.version>
 
-		<hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+		<!-- <hibernate-validator.version>6.1.5.Final</hibernate-validator.version> -->
 
 		<springdoc.version>1.3.9</springdoc.version>
 
@@ -269,11 +269,11 @@
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
 			<!-- main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter(LoggingFailureAnalysisReporter.java:40) -->
-			<dependency>
-				<groupId>org.hibernate.validator</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>${hibernate-validator.version}</version>
-			</dependency>
+			<!-- <dependency> -->
+			<!-- <groupId>org.hibernate.validator</groupId> -->
+			<!-- <artifactId>hibernate-validator</artifactId> -->
+			<!-- <version>${hibernate-validator.version}</version> -->
+			<!-- </dependency> -->
 
 			<dependency>
 				<groupId>org.mybatis.generator</groupId>
