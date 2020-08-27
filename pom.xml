@@ -1,4 +1,5 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -265,7 +266,8 @@
 			</dependency>
 
 			<!-- 如果不加入此项，springboot启动会报错 -->
-			<!-- The Bean Validation API is on the classpath but no implementation could be found -->
+			<!-- The Bean Validation API is on the classpath but no implementation 
+				could be found -->
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
 			<!-- main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter(LoggingFailureAnalysisReporter.java:40) -->
@@ -294,7 +296,7 @@
 			<dependency>
 				<groupId>com.github.pagehelper</groupId>
 				<artifactId>pagehelper</artifactId>
-				<version>5.1.11</version>
+				<version>5.2.0</version>
 			</dependency>
 
 			<!-- MBG用来读取json格式的配置文件 -->
@@ -483,14 +485,20 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<configuration>
 					<!-- 不检查JavaDoc规范 -->
-					<!-- <doclint>none</doclint> -->
-					<!-- <additionalparam>-Xdoclint:none</additionalparam> -->
+					<doclint>none</doclint>
+					<!-- 检查出错误时不中断 -->
+					<failOnError>false</failOnError>
 					<tags>
 						<tag>
 							<name>mbg.generated</name>
 							<!-- todo tag for all places -->
 							<placement>a</placement>
-							<head>mybatis自动生成的代� �</head>
+							<head>mybatis自动生成的代码</head>
+						</tag>
+						<tag>
+							<name>ignore</name>
+							<placement>a</placement>
+							<head>smart-doc生成文档时忽略这个类/方法/字段</head>
 						</tag>
 					</tags>
 				</configuration>
@@ -526,7 +534,7 @@
 							<rules>
 								<!-- <bannedDependenciesEx implementation="rebue.maven.enforcer.BannedDependenciesEx"> -->
 								<bannedDependencies>
-									<!-- 是否搜索�� 递性依赖(间接依赖)，默认false -->
+									<!-- 是否搜索传递性依赖(间接依赖)，默认false -->
 									<searchTransitive>true</searchTransitive>
 									<excludes>
 										<!--groupId[:artifactId][:version][:type][:scope][:classifier] -->
