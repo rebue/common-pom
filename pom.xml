@@ -48,7 +48,7 @@
 
 		<elasticsearch.version>7.3.0</elasticsearch.version>
 
-		<javaparser.version>3.16.1</javaparser.version>
+		<javaparser.version>3.17.0</javaparser.version>
 		<dozer.version>6.5.0</dozer.version>
 		<bouncycastle.version>1.65</bouncycastle.version>
 		<protostuff.version>1.7.2</protostuff.version>
