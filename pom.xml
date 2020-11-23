@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -246,8 +245,7 @@
 			</dependency>
 
 			<!-- 如果不加入此项，springboot启动会报错 -->
-			<!-- The Bean Validation API is on the classpath but no implementation 
-				could be found -->
+			<!-- The Bean Validation API is on the classpath but no implementation could be found -->
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
 			<!-- main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter(LoggingFailureAnalysisReporter.java:40) -->
@@ -292,6 +290,7 @@
 				<version>3.1.6.RELEASE</version>
 			</dependency>
 
+			<!-- 解析java源文件的库 -->
 			<dependency>
 				<groupId>com.github.javaparser</groupId>
 				<artifactId>javaparser-symbol-solver-core</artifactId>
@@ -301,6 +300,38 @@
 				<groupId>com.github.javaparser</groupId>
 				<artifactId>javaparser-core</artifactId>
 				<version>${javaparser.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jdt</groupId>
+				<artifactId>org.eclipse.jdt.core</artifactId>
+				<version>3.23.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jdt</groupId>
+				<artifactId>org.eclipse.jdt.ui</artifactId>
+				<version>3.20.0</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.eclipse.platform</groupId>
+						<artifactId>org.eclipse.swt.gtk.linux.aarch64</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.eclipse.platform</groupId>
+						<artifactId>org.eclipse.swt.gtk.linux.arm</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jna</groupId>
+						<artifactId>com.sun.jna</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>com.sun.jna</groupId>
+						<artifactId>com.sun.jna.platform</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<dependency>
