@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.github.rebue.common-pom</groupId>
 		<artifactId>common-pom</artifactId>
-		<version>1.2.1</version>
+		<version>1.2.2</version>
 	</parent>
 	<artifactId>sb-dependencies</artifactId>
 	<packaging>pom</packaging>
@@ -17,13 +17,13 @@
 			<dependency>
 				<groupId>com.github.rebue.mbgx</groupId>
 				<artifactId>mbgx</artifactId>
-				<version>1.2.1</version>
+				<version>1.2.2</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.github.rebue.wheel</groupId>
 				<artifactId>wheel</artifactId>
-				<version>1.2.1</version>
+				<version>1.2.2</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -31,7 +31,7 @@
 			<dependency>
 				<groupId>com.github.rebue.robotech</groupId>
 				<artifactId>robotech</artifactId>
-				<version>1.2.1</version>
+				<version>1.2.2</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
