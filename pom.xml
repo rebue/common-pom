@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.6.RELEASE</version>
+		<version>2.3.10.RELEASE</version>
 	</parent>
 	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>common-pom</artifactId>
@@ -22,17 +22,18 @@
 
 	<properties>
 		<!-- SpringBoot的版本 -->
-		<spring-boot.version>2.3.6.RELEASE</spring-boot.version>
+		<spring-boot.version>2.3.10.RELEASE</spring-boot.version>
 
 
 		<!-- Spring Boot中的Jar包版本太旧，指定为新版本 -->
 		<okhttp3.version>4.6.0</okhttp3.version>
-		<dubbo.version>2.7.7</dubbo.version>
 
 
 		<!-- Spring Boot中没有的Jar包 -->
+		<!-- 经目前测试，spring-cloud-alibaba的版本在2021.1或2.2.5.RELEASE下，dubbo的版本不能高于2.7.8，spring-cloud的版本不能高于Hoxton.SR9，否则微服务启动时会报错 -->
+		<dubbo.version>2.7.8</dubbo.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
-		<spring-cloud-alibaba.version>2.2.3.RELEASE</spring-cloud-alibaba.version>
+		<spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
 
 		<!-- <nacos.version>2.2.1.RELEASE</nacos.version> -->
 		<!-- <sentinel.version>1.7.2</sentinel.version> -->
@@ -77,7 +78,6 @@
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba.cloud</groupId>
-				<!-- <groupId>org.springframework.cloud</groupId> -->
 				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
 				<version>${spring-cloud-alibaba.version}</version>
 				<type>pom</type>
@@ -130,6 +130,23 @@
 				<groupId>org.apache.dubbo</groupId>
 				<artifactId>dubbo-serialization-kryo</artifactId>
 				<version>${dubbo.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.dubbo</groupId>
+				<artifactId>dubbo-serialization-fst</artifactId>
+				<version>${dubbo.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 
 			<!-- OpenAPI -->
