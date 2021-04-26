@@ -60,7 +60,7 @@
 		<protostuff.version>1.7.2</protostuff.version>
 
 
-		<!-- Maven的插件的版本 -->
+		<!-- Maven编译上传Dock镜像文件的插件的版本 -->
 		<dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
 
 
