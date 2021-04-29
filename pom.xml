@@ -269,7 +269,8 @@
 			</dependency>
 
 			<!-- 如果不加入此项，springboot启动会报错 -->
-			<!-- The Bean Validation API is on the classpath but no implementation could be found -->
+			<!-- The Bean Validation API is on the classpath but no implementation 
+				could be found -->
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
 			<!-- main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter(LoggingFailureAnalysisReporter.java:40) -->
@@ -438,6 +439,13 @@
 				<version>1.0.2.Final</version>
 			</dependency>
 
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.20</version>
+				<scope>provided</scope>
+				<optional>true</optional>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
