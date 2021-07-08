@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -291,8 +290,7 @@
 			</dependency>
 
 			<!-- 如果不加入此项，springboot启动会报错 -->
-			<!-- The Bean Validation API is on the classpath but no implementation 
-				could be found -->
+			<!-- The Bean Validation API is on the classpath but no implementation could be found -->
 			<!-- Action: -->
 			<!-- Add an implementation, such as Hibernate Validator, to the classpath -->
 			<!-- main org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter(LoggingFailureAnalysisReporter.java:40) -->
@@ -505,6 +503,12 @@
 				<groupId>io.minio</groupId>
 				<artifactId>minio</artifactId>
 				<version>8.2.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-recipes</artifactId>
+				<version>5.1.0</version>
 			</dependency>
 
 			<dependency>
