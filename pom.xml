@@ -44,6 +44,8 @@
 		<!-- <sentinel.version>1.7.2</sentinel.version> -->
 		<!-- <alibaba-sentinel.version>2.2.1.RELEASE</alibaba-sentinel.version> -->
 
+		<curator.version>5.2.0</curator.version>
+
 		<shardingsphere.version>5.0.0-beta</shardingsphere.version>
 
 		<mybatis-sbs.version>2.1.0</mybatis-sbs.version>
@@ -194,11 +196,11 @@
 				</exclusions>
 			</dependency>
 
-			<dependency>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-core</artifactId>
-				<version>4.6.1</version>
-			</dependency>
+			<!-- <dependency> -->
+			<!-- <groupId>org.liquibase</groupId> -->
+			<!-- <artifactId>liquibase-core</artifactId> -->
+			<!-- <version>4.6.1</version> -->
+			<!-- </dependency> -->
 
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
@@ -524,11 +526,23 @@
 				<version>8.2.1</version>
 			</dependency>
 
+			<!-- ZooKeeper客户端 -->
 			<dependency>
 				<groupId>org.apache.curator</groupId>
 				<artifactId>curator-recipes</artifactId>
-				<version>5.1.0</version>
+				<version>${curator.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-framework</artifactId>
+				<version>${curator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.curator</groupId>
+				<artifactId>curator-client</artifactId>
+				<version>${curator.version}</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>javax.el</groupId>
@@ -558,14 +572,15 @@
 			<!-- 将源代码目录中的xml/properties/tld文件也打包，比如mybatis的mapper.xml文件 -->
 			<resource>
 				<directory>${basedir}/src/main/java</directory>
+				<!-- 是否替换文件里的占位符 > ${...} -->
+				<filtering>false</filtering>
 				<includes>
 					<include>**/*.properties</include>
 					<include>**/*.xml</include>
 					<include>**/*.tld</include>
 				</includes>
-				<!-- 是否替换文件里的占位符 > ${...} -->
-				<filtering>false</filtering>
 			</resource>
+
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>
 				<filtering>true</filtering>
