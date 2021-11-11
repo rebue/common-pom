@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.10.RELEASE</version>
+		<version>2.3.12.RELEASE</version>
 	</parent>
 	<groupId>com.github.rebue.common-pom</groupId>
 	<artifactId>common-pom</artifactId>
@@ -21,7 +21,8 @@
 
 	<properties>
 		<!-- SpringBoot的版本 -->
-		<spring-boot.version>2.3.10.RELEASE</spring-boot.version>
+		<!-- 注意此版本号要和上面GAV的version节点一起同步更新 -->
+		<spring-boot.version>2.3.12.RELEASE</spring-boot.version>
 
 
 		<!-- Spring Boot中的Jar包版本太旧，指定为新版本 -->
@@ -33,6 +34,7 @@
 		<dubbo.version>2.7.8</dubbo.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 		<!-- 经测试，spring-cloud-alibaba的版本目前不能升级到2021.1，否则gateway转发不了请求到微服务，也不报错，但就是不转发 -->
+		<!-- 经测试，spring-cloud-alibaba的版本目前不能升级到2.2.6.RELEASE，否则gateway启动报错 -->
 		<spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
 
 		<!-- 经测试，dubbo的版本在2.7.8下，kryo的版本只能是4.0.2及以下，不能升到5以上的版本 -->
@@ -40,7 +42,8 @@
 		<!-- 因为3的版本需要JDK14，所以fst不能升上3的版本 -->
 		<fst.version>2.57</fst.version>
 
-		<!-- <nacos.version>2.2.1.RELEASE</nacos.version> -->
+		<nacos.version>2.0.3</nacos.version>
+
 		<!-- <sentinel.version>1.7.2</sentinel.version> -->
 		<!-- <alibaba-sentinel.version>2.2.1.RELEASE</alibaba-sentinel.version> -->
 
@@ -91,6 +94,11 @@
 				<version>${spring-cloud-alibaba.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.nacos</groupId>
+				<artifactId>nacos-client</artifactId>
+				<version>${nacos.version}</version>
 			</dependency>
 
 			<dependency>
@@ -583,20 +591,12 @@
 
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>
-				<filtering>true</filtering>
 				<includes>
-					<include>**/application*.yml</include>
-					<include>**/application*.yaml</include>
-					<include>**/application*.properties</include>
+					<include>config/bootstrap.yml</include>
+					<include>config/bootstrap-prod.yml</include>
+					<include>db</include>
+					<include>static/doc</include>
 				</includes>
-			</resource>
-			<resource>
-				<directory>${basedir}/src/main/resources</directory>
-				<excludes>
-					<exclude>**/application*.yml</exclude>
-					<exclude>**/application*.yaml</exclude>
-					<exclude>**/application*.properties</exclude>
-				</excludes>
 			</resource>
 		</resources>
 
@@ -657,11 +657,10 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<configuration>
 					<excludes>
-						<exclude>config/**</exclude>
 						<exclude>static/**</exclude>
 						<exclude>templates/**</exclude>
-						<exclude>**/*.yml</exclude>
-						<exclude>**/log4j2.xml</exclude>
+						<exclude>config/log4j2.xml</exclude>
+						<exclude>config/smart-doc.json</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
