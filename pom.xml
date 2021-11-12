@@ -591,12 +591,20 @@
 
 			<resource>
 				<directory>${basedir}/src/main/resources</directory>
+				<filtering>true</filtering>
 				<includes>
-					<include>config/bootstrap.yml</include>
-					<include>config/bootstrap-prod.yml</include>
-					<include>db</include>
-					<include>static/doc</include>
+					<include>**/application*.yml</include>
+					<include>**/application*.yaml</include>
+					<include>**/application*.properties</include>
 				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<excludes>
+					<exclude>**/application*.yml</exclude>
+					<exclude>**/application*.yaml</exclude>
+					<exclude>**/application*.properties</exclude>
+				</excludes>
 			</resource>
 		</resources>
 
@@ -659,6 +667,8 @@
 					<excludes>
 						<exclude>static/**</exclude>
 						<exclude>templates/**</exclude>
+						<exclude>config/**-dev.yml</exclude>
+						<exclude>config/application-prod.yml</exclude>
 						<exclude>config/log4j2.xml</exclude>
 						<exclude>config/smart-doc.json</exclude>
 					</excludes>
