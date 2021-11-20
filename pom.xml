@@ -679,6 +679,7 @@
 						<exclude>templates/**</exclude>
 						<exclude>config/**-dev.yml</exclude>
 						<exclude>config/application-prod.yml</exclude>
+						<exclude>config/bootstrap-prod.yml</exclude>
 						<exclude>config/log4j2.xml</exclude>
 						<exclude>config/smart-doc.json</exclude>
 					</excludes>
