@@ -1,5 +1,4 @@
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -20,6 +19,9 @@
 	<!-- </modules> -->
 
 	<properties>
+		<!-- log4j版本升级到2.14以上（不含2.14），解决log4j的安全漏洞问题 -->
+		<log4j.version>2.17.0</log4j.version>
+
 		<!-- SpringBoot的版本 -->
 		<!-- 注意此版本号要和上面GAV的version节点一起同步更新 -->
 		<spring-boot.version>2.3.12.RELEASE</spring-boot.version>
@@ -81,31 +83,26 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<!-- log4j版本升级到2.14以上，解决log4j的安全漏洞问题 -->
+			<!-- log4j版本升级到2.14以上（不含2.14），解决log4j的安全漏洞问题 -->
 			<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-api</artifactId>
-				<version>2.16.0</version>
-				</dependency>
-			<dependency>
-					<groupId>org.apache.logging.log4j</groupId>
-					<artifactId>log4j-core</artifactId>
-				<version>2.16.0</version>
-				</dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-core</artifactId>
-				<version>2.16.0</version>
+				<version>${log4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-slf4j-impl</artifactId>
-				<version>2.16.0</version>
+				<version>${log4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.logging.log4j</groupId>
 				<artifactId>log4j-jul</artifactId>
-				<version>2.16.0</version>
+				<version>${log4j.version}</version>
 			</dependency>
 
 			<dependency>
@@ -139,6 +136,22 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-log4j2</artifactId>
+				<version>2.6.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.apache.logging.log4j</groupId>
+						<artifactId>log4j-slf4j-impl</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.apache.logging.log4j</groupId>
+						<artifactId>log4j-jul</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
 
 			<!-- 排除tomcat(为使用undertow作准备) -->
 			<dependency>
