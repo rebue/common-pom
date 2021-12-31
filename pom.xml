@@ -20,7 +20,7 @@
 
 	<properties>
 		<!-- log4j版本升级到2.14以上（不含2.14），解决log4j的安全漏洞问题 -->
-		<log4j.version>2.17.0</log4j.version>
+		<log4j.version>2.17.1</log4j.version>
 
 		<!-- SpringBoot的版本 -->
 		<!-- 注意此版本号要和上面GAV的version节点一起同步更新 -->
