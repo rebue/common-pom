@@ -31,7 +31,7 @@
 
 		<!-- Spring Boot中没有的Jar包 -->
 		<!-- 经测试，spring-cloud-alibaba的版本在2.2.5.RELEASE下，dubbo的版本不能高于2.7.8，spring-cloud的版本不能高于Hoxton.SR9，否则微服务启动时会报错 -->
-		<dubbo.version>2.7.8</dubbo.version>
+		<dubbo.version>2.7.15</dubbo.version>
 		<spring-cloud.version>Hoxton.SR9</spring-cloud.version>
 		<!-- 经测试，spring-cloud-alibaba的版本目前不能升级到2021.1，否则gateway转发不了请求到微服务，也不报错，但就是不转发 -->
 		<!-- 经测试，spring-cloud-alibaba的版本目前不能升级到2.2.6.RELEASE，否则gateway启动报错 -->
