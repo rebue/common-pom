@@ -51,7 +51,7 @@
 
 		<curator.version>5.2.0</curator.version>
 
-		<shardingsphere.version>5.0.0-beta</shardingsphere.version>
+		<shardingsphere.version>5.0.0</shardingsphere.version>
 
 		<mybatis-sbs.version>2.1.0</mybatis-sbs.version>
 		<!-- <feign.version>9.7.0</feign.version> -->
@@ -281,6 +281,12 @@
 				<groupId>org.elasticsearch.client</groupId>
 				<artifactId>elasticsearch-rest-high-level-client</artifactId>
 				<version>${elasticsearch.version}</version> <!--$NO-MVN-MAN-VER$ -->
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.skywalking</groupId>
+				<artifactId>apm-toolkit-log4j-2.x</artifactId>
+				<version>8.9.0</version>
 			</dependency>
 
 
