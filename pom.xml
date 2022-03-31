@@ -22,7 +22,7 @@
 	<properties>
 		<!-- SpringBoot的版本 -->
 		<!-- 注意此版本号要和上面GAV的version节点一起同步更新 -->
-		<spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+		<spring-boot.version>2.5.12</spring-boot.version>
 
 
 		<!-- Spring Boot中的Jar包版本太旧，指定为新版本 -->
